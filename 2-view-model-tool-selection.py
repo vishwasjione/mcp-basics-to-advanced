@@ -1,3 +1,7 @@
+
+# complete description of this code is available in 1-model-selects-tool.py
+# I will add description/comments to the new lines added to this py file , you can find those at the end of this file
+
 import json
 from typing import Any, Dict, Literal, Optional
 
@@ -57,9 +61,25 @@ def get_tool_decision(user_msg: str) -> ToolCall:
 
 
 
+# here we are getting return from ToolCall.model_validate which is used in get_tool_decition function
 call =get_tool_decision("Count how many O's are in this sentence: 'Hello, World!'")
+# we are converting it into json format
 call_json = call.model_dump_json()
 call2 = get_tool_decision("What is sum of 19 and 23? ")
 call2_json = call2.model_dump_json()
+
 print("call_json: ", call_json)
+
+# the output of this looks like following 
+# call_json:  {"tool":"count_o","args":{"text":"Hello, World!"},"final":null}
+# We can see here one extra "final":null, which was actully not model output as we have seen in 1-model-tool-selection.py
+# this is the beauty of pydantic validation, it will always complete schema as per its definition
+
 print("call2_json: ", call2_json)
+
+# the output of this looks like following
+# call2_json:  {"tool":"add","args":{"a":19,"b":23},"final":null}
+# We can see here one extra "final":null, which was actully not model output as we have seen in 1-model-tool-selection.py
+# this is the beauty of pydantic validation, it will always complete schema as per its definition
+
+# now for next step move to 3-call-tool.py
