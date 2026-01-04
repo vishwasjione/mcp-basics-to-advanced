@@ -1,3 +1,9 @@
+# complete description of this code is available in 1-model-selects-tool.py
+# I will add description/comments to the new lines added to this py file , you can find those at the end of this file
+
+
+
+
 import json
 from typing import Any, Dict, Literal, Optional
 
@@ -59,6 +65,14 @@ def count_o(text: str) -> int:
 def add(a: float, b: float) -> float:
     return a + b
 
+# This is a second call to model, first call gave us output which helped us with tool/functoin selection
+# and we used that to call the right functions/tools and got results
+# now we are calling the model again providing the result of those tool calls 
+# we are giving the context again like system prompbt and user prompt 
+
+# one extra thing we doing is here using "assistant" prompt which reminds model what he returned earlire
+# this creates a chain kind of thing and model can remember what it delivered earlire and this in continuation of the same
+
 def get_final_answer(user_msg: str, call_json: str, tool_result: Any) -> str:
     """Ask the model to produce the final user-facing response using tool result."""
     resp = client.chat.completions.create(
@@ -88,6 +102,11 @@ result = fn(**call.args)
 
 print("result: ", result)
 
+# calling the model again and providing following inputs
+# original question that was asked 
+# output that model earlire provided
+# output of the tool calls 
+
 model_response = get_final_answer("Count how many O's are in this sentence: 'Hello, World!'", call_json, result)
 print("model_response: ", model_response)
 
@@ -100,6 +119,12 @@ fn = TOOLS[call.tool]
 result = fn(**call.args)
 
 print("result: ", result)
+
+# calling the model again and providing following inputs
+# original question that was asked 
+# output that model earlire provided
+# output of the tool calls 
+
 model_response = get_final_answer("What is sum of 19 and 23? ", call_json, result)
 print("model_response: ", model_response)
 
