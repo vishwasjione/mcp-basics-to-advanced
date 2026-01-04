@@ -59,6 +59,19 @@ def count_o(text: str) -> int:
 def add(a: float, b: float) -> float:
     return a + b
 
+def get_final_answer(user_msg: str, call_json: str, tool_result: Any) -> str:
+    """Ask the model to produce the final user-facing response using tool result."""
+    resp = client.chat.completions.create(
+        model=MODEL,
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant. Use the tool result to answer."},
+            {"role": "user", "content": user_msg},
+            {"role": "assistant", "content": call_json},
+            {"role": "user", "content": f"Tool result: {tool_result}\nNow answer clearly in 1-3 sentences."},
+        ],
+        temperature=0,
+    )
+    return resp.choices[0].message.content.strip()
 
 TOOLS = {
     "count_o": count_o,
@@ -75,6 +88,9 @@ result = fn(**call.args)
 
 print("result: ", result)
 
+model_response = get_final_answer("Count how many O's are in this sentence: 'Hello, World!'", call_json, result)
+print("model_response: ", model_response)
+
 
 call = get_tool_decision("What is sum of 19 and 23? ")
 call_json = call.model_dump_json()
@@ -84,3 +100,7 @@ fn = TOOLS[call.tool]
 result = fn(**call.args)
 
 print("result: ", result)
+model_response = get_final_answer("What is sum of 19 and 23? ", call_json, result)
+print("model_response: ", model_response)
+
+
