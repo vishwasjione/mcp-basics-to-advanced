@@ -13,7 +13,85 @@ but before we do that we will have to setup the local envrionment, please follow
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 
+We are using Ollama but you can using other model providers as well
 
+2. Start Ollama 
+
+```bash
+ollama serve
+```
+
+it wills start the server which you can use in your code for calling model
+
+3. download model 
+
+```bash
+ollama run qwen2.5-coder:3b
+```
+it will start command prompt and you can ask simple questions to make sure, ollama in local is working fine.
+
+4. Open cursor or vs code and open terminal and install uv
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+5. Create  virutal environment 
+
+```bash
+uv venv .venv
+```
+activate it 
+
+```bash
+source .venv/bin/activate
+```
+
+
+6. Intall openai
+
+```bash
+uv pip install openai
+```
+
+7. Check installed libs
+
+```bash
+up pip list
+```
+
+mine look like following 
+
+Package           Version
+----------------- -----------
+annotated-types   0.7.0
+anyio             4.12.0
+certifi           2025.11.12
+distro            1.9.0
+h11               0.16.0
+httpcore          1.0.9
+httpx             0.28.1
+idna              3.11
+jiter             0.12.0
+numpy             2.4.0
+openai            2.14.0
+pandas            2.3.3
+pydantic          2.12.5
+pydantic-core     2.41.5
+python-dateutil   2.9.0.post0
+pytz              2025.2
+six               1.17.0
+sniffio           1.3.1
+tqdm              4.67.1
+typing-extensions 4.15.0
+typing-inspection 0.4.2
+tzdata            2025.3
+
+Note :- In case of any setup error you can always take help of google/llms to fix the error
+
+8.  IDE to use venv
+
+Configure IDE so that it uses the venv you just created
 
 
 
