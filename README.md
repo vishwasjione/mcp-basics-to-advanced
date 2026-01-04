@@ -94,6 +94,8 @@ Note :- In case of any setup error you can always take help of google/llms to fi
 Configure IDE so that it uses the venv you just created
 
 
+# Step by step calling tool (first without MCP)
+
 
 - **1-model-selects-tool.py**:  
   This file demonstrates how to prompt a language model to decide which tool (function) should be used based on a user query. The model assesses the user's message, selects the most appropriate tool, and outputs its choice in a structured JSON format.
@@ -103,5 +105,25 @@ Configure IDE so that it uses the venv you just created
 
 - **3-call-tool.py**:  
   Here, the model's tool-selection JSON is used to directly call Python functions. The script parses the model's output, maps the selected tool name to a Python function, runs it with the parsed arguments, and prints the result. It also handles cases where the model doesn't select a tool and just provides a final answer directly.
+  
+- **4-result-back-to-LLM.py**:  
+  This script expands the tool-calling pipeline by not only having the model select and call a tool, but also sending the tool's result back to the model to synthesize a final user-facing answer. The workflow includes:
+  
+  1. The user asks a question.
+  2. The model is prompted to return a JSON object indicating which tool (if any) to use, plus its arguments.
+  3. The tool is executed according to this JSON, and the output is obtained.
+  4. This tool output, alongside the original user query and model's tool-selection JSON, are given back to the model.
+  5. The model is then asked to generate a final, conversational answer based on the tool result.
+
+  In this way, the model not only orchestrates tool use, but also "post-processes" the outcome to produce a clear, helpful final response for the end user. The script demonstrates the full closed-loop cycle from user prompt → model tool selection → tool execution → model-formulated answer.
 
 Together, these files exemplify how to build, debug, and integrate LLM-controlled tool use in Python applications.
+
+- **tool-agent.py**:  
+  This script provides a complete, production-style implementation that combines all steps from the above example scripts. It serves as an "all-in-one" agent for tool use powered by an LLM and integrates:
+
+  1. **Tool selection**: The model receives the user query and returns structured JSON indicating which tool to use (or whether to answer directly).
+  2. **Tool execution**: The chosen Python function is executed with the arguments extracted from the model's response.
+  3. **Final answer synthesis**: If a tool was called, the result is returned to the model, which produces a final clear, conversational answer for the user.
+
+  The script exposes a single `run(user_msg)` function for end-to-end processing of any user question, handling all the orchestration internally. Example usage (when run as `python tool-agent.py`) shows how it answers user questions, delegates to tools, and combines the results using the model. This file is intended as the recommended interface for tool-using LLMs, where the earlier example files are primarily didactic and incremental in nature.
