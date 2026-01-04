@@ -8,8 +8,11 @@ but before we do that we will have to setup the local envrionment, please follow
 
 1.  Install ollama
 
+
 ```bash
 curl -fsSL https://ollama.com/install.sh | sh
+```
+
 
 
 
