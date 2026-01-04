@@ -57,7 +57,7 @@ uv pip install openai
 7. Check installed libs
 
 ```bash
-up pip list
+uv pip list
 ```
 
 mine look like following 
@@ -94,7 +94,10 @@ Note :- In case of any setup error you can always take help of google/llms to fi
 Configure IDE so that it uses the venv you just created
 
 
-# Step by step calling tool (first without MCP)
+# Step by step calling tool (without MCP)
+
+Each following python file includes detailed comments, so if you start with 1-model-selects-tool.py, comments will help you understand each and every part 
+of the code, and same code is copied over to next set of files with new changes so that we can understand stuff in proper manner and not look at all the complex code in one go.
 
 
 - **1-model-selects-tool.py**:  
@@ -127,3 +130,7 @@ Together, these files exemplify how to build, debug, and integrate LLM-controlle
   3. **Final answer synthesis**: If a tool was called, the result is returned to the model, which produces a final clear, conversational answer for the user.
 
   The script exposes a single `run(user_msg)` function for end-to-end processing of any user question, handling all the orchestration internally. Example usage (when run as `python tool-agent.py`) shows how it answers user questions, delegates to tools, and combines the results using the model. This file is intended as the recommended interface for tool-using LLMs, where the earlier example files are primarily didactic and incremental in nature.
+
+
+# Step by step calling tool (with MCP)
+
