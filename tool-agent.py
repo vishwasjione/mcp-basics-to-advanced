@@ -1,3 +1,13 @@
+# detailed comments and description of this code you can find in 
+
+# 1-model-selects-tool.py
+# 2-view-model-tool-selection.py
+# 3-call-tool.py
+# 4-result-back-to-LLM.py
+
+# This file brings everything together in production ready mode
+# there are few new things here where I added comments, you can find that in later part of this file 
+
 import json
 from typing import Any, Dict, Literal, Optional
 
@@ -109,4 +119,8 @@ def run(user_msg: str) -> str:
 if __name__ == "__main__":
     print(run("Count how many O's are in this sentence: 'Hello, World!'"))
     print(run("What is 19 + 23? Use the add tool."))
+
+    # here we are asking a question which is neither related with counting nor related with addition 
+    # this demonstrates that model still can answer question without tools also, but will call tool whenver users ask question that should be answered by the tool
+
     print(run("What is the capital of USA"))
