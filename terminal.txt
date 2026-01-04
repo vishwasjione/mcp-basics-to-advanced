@@ -1,0 +1,67 @@
+vishwas@MKT-T470-Ubuntu:~$ which ollama
+vishwas@MKT-T470-Ubuntu:~$ curl -fsSL https://ollama.com/install.sh | sh
+>>> Installing ollama to /usr/local
+[sudo: authenticate] Password: 
+>>> Downloading Linux amd64 bundle
+######################################################################## 100.0%
+>>> Creating ollama user...
+>>> Adding ollama user to render group...
+>>> Adding ollama user to video group...
+>>> Adding current user to ollama group...
+>>> Creating ollama systemd service...
+>>> Enabling and starting ollama service...
+Created symlink '/etc/systemd/system/default.target.wants/ollama.service' → '/etc/systemd/system/ollama.service'.
+>>> The Ollama API is now available at 127.0.0.1:11434.
+>>> Install complete. Run "ollama" from the command line.
+WARNING: No NVIDIA/AMD GPU detected. Ollama will run in CPU-only mode.
+vishwas@MKT-T470-Ubuntu:~$ ollama --version
+ollama version is 0.13.5
+vishwas@MKT-T470-Ubuntu:~$ ollama serve
+Couldn't find '/home/vishwas/.ollama/id_ed25519'. Generating new private key.
+Your new public key is: 
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGbdHTg/LKORba/LPcSBraNaUFIRopnJstnjBZGSt+8o
+
+Error: listen tcp 127.0.0.1:11434: bind: address already in use
+vishwas@MKT-T470-Ubuntu:~$ ^C
+vishwas@MKT-T470-Ubuntu:~$ ps aux | grep ollama
+ollama     13639  0.0  0.1 1538736 33124 ?       Ssl  15:18   0:00 /usr/local/bin/ollama serve
+vishwas    13704  0.0  0.0  18148  2500 pts/3    S+   15:19   0:00 grep --color=auto ollama
+vishwas@MKT-T470-Ubuntu:~$ ollama list
+NAME    ID    SIZE    MODIFIED 
+vishwas@MKT-T470-Ubuntu:~$ ollama run qwen2.5-coder:3b
+pulling manifest 
+pulling 4a188102020e: 100% ▕████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏ 1.9 GB                         
+pulling 66b9ea09bd5b: 100% ▕████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏   68 B                         
+pulling 1e65450c3067: 100% ▕████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏ 1.6 KB                         
+pulling 45fc3ea7579a: 100% ▕████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏ 7.4 KB                         
+pulling bb967eff3bda: 100% ▕████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏  487 B                         
+verifying sha256 digest 
+writing manifest 
+success 
+>>> curl http://localhost:11434/v1/models
+... 
+ It looks like you're trying to access an API endpoint that provides information about models hosted on your server running at `http://localhost:11434`. Here's a breakdown of what this URL might represent:
+
+- `http`: This is the protocol used for communication.
+- `//localhost`: This indicates that the request is being made to a server running on the local machine (loopback address).
+- `:11434`: This specifies the port number that the server is listening on.
+- `/v1/models`: This is the path of the API endpoint, which likely returns information about models stored or managed by the server.
+
+To understand what this specific API does, you would need to check the documentation for your application or service. Typically, endpoints like `/v1/models` might return a list of available models, their metadata (e.g., name, 
+version, description), and any relevant configuration details.
+
+If you're not sure what data is being returned by this endpoint, you can try making the request using a tool like `curl` or Postman to inspect the response. Here's an example command to use `curl`:
+
+```sh
+curl -X GET http://localhost:11434/v1/models
+```
+
+This will send a GET request to the specified endpoint and print out the response, which you can then analyze.
+
+If you have specific questions about what the data means or need further assistance with using this API, feel free to ask!
+
+>>> hello
+Hello! How can I assist you today? Is there something specific you would like information on, a question you need answered, or an issue you're facing? Let me know how I can help.
+
+>>> Send a message (/? for help)
