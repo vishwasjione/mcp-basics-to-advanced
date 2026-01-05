@@ -156,7 +156,7 @@ c.) lifecycle is owned by agent/main process
 
 it has following properties
 
-a.) no ports
+a.) no ports\n
 b.) no networking
 c.) no authentication
 d.) per-agent isolation
@@ -175,6 +175,7 @@ agent process-
 
 
 2. MCP as Independent Process (http/sse)
+--------------------
 
 - **mcp-4-http-seperate-process.py**:  
   Shows usage of an MCP client communicating with a remote MCP server over HTTP/SSE. Lists available tools and demonstrates invoking a tool (e.g., `ask_question`) remotely.
