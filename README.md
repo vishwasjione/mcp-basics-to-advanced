@@ -151,6 +151,7 @@ The answer and solution of each of these question is following
 
 This is what MCP server is all about ..
 
+![MCP Overview](./images/MCP.png)
 
 
 # Step by step calling tool (with MCP)
@@ -163,15 +164,14 @@ uv pip install mcp
 
 MCP server can be called mostly in 2 fasions - 
 
-- 1.) As a subprocess (MCP server started by the agent process)  
-- 2.) As a remote MCP server running independently  
+- 1.) As a subprocess (MCP server started by the agent process i.e. agent owns the tools)
+- 2.) As a remote MCP server running independently i.e. platform owns the tools
 
 let us understand it in details - 
 
 1. MCP as Subprocess (stdin/stdout)
---------------------
 
-- a.) main process or agent process spawns the MCP server
+- a.) main process or agent process spawns the MCP server i.e. MCP server process is child process of agent process
 - b.) communication happenes with stdin/stdout
 - c.) lifecycle is owned by agent/main process
 
@@ -196,7 +196,6 @@ agent process-
 
 
 2. MCP as Independent Process (http/sse)
---------------------
 
 - **mcp-4-http-seperate-process.py**:  
   Shows usage of an MCP client communicating with a remote MCP server over HTTP/SSE. Lists available tools and demonstrates invoking a tool (e.g., `ask_question`) remotely.
@@ -208,3 +207,6 @@ agent process-
   Example of a client that connects to a local MCP server (from `mcp-5-run-http-local.py`), fetches tools, passes them as tool definitions to an LLM (e.g., Ollama), extracts tool calls from the LLM's structured output, executes them, and re-queries the LLM for a natural language answer based on tool results. Demonstrates a full LLM-driven, MCP-enabled tool call cycle.
 
 These scripts incrementally build up a robust tool-calling workflow using MCP, both locally and remotely, with end-to-end agentic orchestration.
+
+
+... continue (in progress) I will be publishing new updates 
