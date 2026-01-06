@@ -1,4 +1,4 @@
-# mcp-basics-to-advanced
+# mcp-basics-to-advanced   (**without any API cost**)
 This repo helps AI developers in learning about MCP and how to develop AI application using MCP, we will not use any API as such and entire execution will happen in local computer so developers won't have worry about API keys and cost of using an LLM.
 
 Before we start using MCP, we will do same stuff without using MCP i.e. coding all kinds of tools in the same file or code base where LLM is also configured.
@@ -130,6 +130,25 @@ Together, these files exemplify how to build, debug, and integrate LLM-controlle
   3. **Final answer synthesis**: If a tool was called, the result is returned to the model, which produces a final clear, conversational answer for the user.
 
   The script exposes a single `run(user_msg)` function for end-to-end processing of any user question, handling all the orchestration internally. Example usage (when run as `python tool-agent.py`) shows how it answers user questions, delegates to tools, and combines the results using the model. This file is intended as the recommended interface for tool-using LLMs, where the earlier example files are primarily didactic and incremental in nature.
+
+
+# reason why not using MCP is a bad idea / reasons of using MCP
+
+I will explain in very simple english, let us look back our code in ```tool-agent.py```.
+When you look at the code you will ask following questions ..
+
+1. What if I have other agent programs as well where these functions are required ?
+2. What if I have to add new functions/tools or change existing functions/tools, do I need to change each of those agent programs where they are being used ?
+3. What if my tools acceess things like databases how do I manage security as tools are all over the place
+4. How do I maintain logs at single place, my tools are everywhere?
+5. What if agent code forgets to create and use proper schema for the tool and also doesn't validate it, it will fail tool at execution side
+
+The answer and solution of each of these question is following 
+
+"Why don't I store these tools at centralized location along with validaton rules, security etc. and give access to agent programs "
+
+This question leads to MCP server.
+
 
 
 # Step by step calling tool (with MCP)

@@ -1,17 +1,27 @@
+# This file creates a mcp server which has tools to fetch schema and run query on dqlite database
+
+
+
 import sqlite3
 from typing import Any, Dict, List
 
 from mcp.server.fastmcp import FastMCP
 
+# we are giving MCP server name here 
 mcp = FastMCP("sqlite-tools")  # FastMCP auto-builds tool schemas from type hints/docstrings. :contentReference[oaicite:1]{index=1}
 
+# path of the db 
 DB_PATH = "store.db"
 
+# security or guardrails to make sure model only executes SELECT operations 
 def _is_read_only(sql: str) -> bool:
     forbidden = ["insert", "update", "delete", "drop", "alter", "create", "replace", "truncate", "attach", "pragma"]
     s = sql.strip().lower()
     return s.startswith("select") and not any(k in s for k in forbidden)
 
+
+
+# function to provide schema to model so that it can create query properly
 @mcp.tool()
 def db_schema() -> dict:
     """
@@ -32,7 +42,7 @@ def db_schema() -> dict:
     print("schema", schema)
     return schema
 
-
+# function to execute the query , query will be created by model and will be executed by MCP framework
 @mcp.tool()
 def sql_query(query: str) -> List[Dict[str, Any]]:
     """
