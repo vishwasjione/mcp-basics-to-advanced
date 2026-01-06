@@ -171,42 +171,42 @@ let us understand it in details -
 
 1. MCP as Subprocess (stdin/stdout)
 
-- a.) main process or agent process spawns the MCP server i.e. MCP server process is child process of agent process
-- b.) communication happenes with stdin/stdout
-- c.) lifecycle is owned by agent/main process
+    - a.) main process or agent process spawns the MCP server i.e. MCP server process is child process of agent process
+    - b.) communication happenes with stdin/stdout
+    - c.) lifecycle is owned by agent/main process
 
-it has following properties
+    it has following properties
 
-- a.) no ports
-- b.) no networking
-- c.) no authentication
-- d.) per-agent isolation
+    - a.) no ports
+    - b.) no networking
+    - c.) no authentication
+    - d.) per-agent isolation
 
-let us create subprocess python file 
+    let us create subprocess python file 
 
-subprocess - 
+    subprocess - 
 
-- **mcp-2-mcp-sqlite-server.py**:  ( sub process which will be called by main/agent process)
-  An MCP server implementation that exposes tools for querying an SQLite database. It includes a tool to return the DB schema and a `sql_query` tool for read-only SQL SELECT queries. Meant to be run as a subprocess or service.
+    - **mcp-2-mcp-sqlite-server.py**:  ( sub process which will be called by main/agent process)
+    An MCP server implementation that exposes tools for querying an SQLite database. It includes a tool to return the DB schema and a `sql_query` tool for read-only SQL SELECT queries. Meant to be run as a subprocess or service.
 
-agent process-
+    agent process-
 
-- **mcp-3-agent-with-mcp-subprocess.py**:  
-  An agent-style client that launches the above MCP server as a subprocess, discovers available tools, and orchestrates a complete flow: retrieves database schema, generates a user-grounded SQL query via an LLM, executes the selected tool, and asks the LLM to summarize the results.
+    - **mcp-3-agent-with-mcp-subprocess.py**:  
+    An agent-style client that launches the above MCP server as a subprocess, discovers available tools, and orchestrates a complete flow: retrieves database schema, generates a user-grounded SQL query via an LLM, executes the selected tool, and asks the LLM to summarize the results.
 
 
 2. MCP as Independent Process (http/sse)
 
-- **mcp-4-http-seperate-process.py**:  
-  Shows usage of an MCP client communicating with a remote MCP server over HTTP/SSE. Lists available tools and demonstrates invoking a tool (e.g., `ask_question`) remotely.
+    - **mcp-4-http-seperate-process.py**:  
+    Shows usage of an MCP client communicating with a remote MCP server over HTTP/SSE. Lists available tools and demonstrates invoking a tool (e.g., `ask_question`) remotely.
 
-- **mcp-5-run-http-local.py**:  
-  Runs a custom FastMCP server locally over HTTP/SSE with sample math tools. Used to expose your own functions (e.g., `add_numbers`, `count_chars`) as MCP tools. Shows setup of host/port and server startup.
+    - **mcp-5-run-http-local.py**:  
+    Runs a custom FastMCP server locally over HTTP/SSE with sample math tools. Used to expose your own functions (e.g., `add_numbers`, `count_chars`) as MCP tools. Shows setup of host/port and server startup.
 
-- **mcp-6-call-mcp-local.py**:  
-  Example of a client that connects to a local MCP server (from `mcp-5-run-http-local.py`), fetches tools, passes them as tool definitions to an LLM (e.g., Ollama), extracts tool calls from the LLM's structured output, executes them, and re-queries the LLM for a natural language answer based on tool results. Demonstrates a full LLM-driven, MCP-enabled tool call cycle.
+    - **mcp-6-call-mcp-local.py**:  
+    Example of a client that connects to a local MCP server (from `mcp-5-run-http-local.py`), fetches tools, passes them as tool definitions to an LLM (e.g., Ollama), extracts tool calls from the LLM's structured output, executes them, and re-queries the LLM for a natural language answer based on tool results. Demonstrates a full LLM-driven, MCP-enabled tool call cycle.
 
-These scripts incrementally build up a robust tool-calling workflow using MCP, both locally and remotely, with end-to-end agentic orchestration.
+    These scripts incrementally build up a robust tool-calling workflow using MCP, both locally and remotely, with end-to-end agentic orchestration.
 
 
-... continue (in progress) I will be publishing new updates 
+    ... continue (in progress) I will be publishing new updates 

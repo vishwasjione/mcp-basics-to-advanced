@@ -14,6 +14,11 @@ from mcp.client.stdio import stdio_client
 llm = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
 MODEL = "qwen2.5-coder:3b"
 
+
+# this pydantic tool class make sure that model calls tool with following
+# tool --> it should be a string , in this case it will be sql_query
+# args --> it tells it will be dict with key as string and value could be Any
+
 class ToolCall(BaseModel):
     tool: str
     args: Dict[str, Any] = Field(default_factory=dict)
