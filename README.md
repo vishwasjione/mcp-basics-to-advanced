@@ -134,7 +134,7 @@ Together, these files exemplify how to build, debug, and integrate LLM-controlle
   The script exposes a single `run(user_msg)` function for end-to-end processing of any user question, handling all the orchestration internally. Example usage (when run as `python tool-agent.py`) shows how it answers user questions, delegates to tools, and combines the results using the model. This file is intended as the recommended interface for tool-using LLMs, where the earlier example files are primarily didactic and incremental in nature.
 
 
-# reason why not using MCP is a bad idea / reasons of using MCP
+# Reasons why not using MCP is a bad idea / reasons of using MCP
 
 I will explain in very simple english, let us look back our code in ```tool-agent.py```.
 When you look at the code you will ask following questions ..
@@ -163,24 +163,24 @@ uv pip install mcp
 
 MCP server can be called mostly in 2 fasions - 
 
-1.) As a subprocess (MCP server) of the main/agent process responsbile for answering users quetsion or owner of the task
-2.) Calling a remote MCP server which is running independently
+- 1.) As a subprocess (MCP server started by the agent process)  
+- 2.) As a remote MCP server running independently  
 
 let us understand it in details - 
 
 1. MCP as Subprocess (stdin/stdout)
 --------------------
 
-a.) main process or agent process spawns the MCP server
-b.) communication happenes with stdin/stdout
-c.) lifecycle is owned by agent/main process
+- a.) main process or agent process spawns the MCP server
+- b.) communication happenes with stdin/stdout
+- c.) lifecycle is owned by agent/main process
 
 it has following properties
 
-a.) no ports\n
-b.) no networking
-c.) no authentication
-d.) per-agent isolation
+- a.) no ports
+- b.) no networking
+- c.) no authentication
+- d.) per-agent isolation
 
 let us create subprocess python file 
 
