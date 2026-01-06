@@ -24,6 +24,8 @@ class ToolCall(BaseModel):
     args: Dict[str, Any] = Field(default_factory=dict)
     final: Optional[str] = None
 
+
+# system prompt asking model to following a proper json format
 SYSTEM = """
 You are a tool-using assistant.
 Return ONLY valid JSON (no markdown, no explanation, no ``` fences).
@@ -36,6 +38,9 @@ If you need a tool:
 If no tool needed:
 {"tool":"none","final":"..."}
 """
+
+# some model returns values in this style ```json { ... } ``` and those needs to be removed and following
+# function is made for that purpose 
 
 def extract_json_object(text: str) -> dict:
     """
@@ -55,6 +60,9 @@ def extract_json_object(text: str) -> dict:
         text = m.group(1).strip()
 
     return json.loads(text)
+
+# now this is the main thing here, so far we haven't used async in front of tools or functions when we were calling functions without MCP
+# but now you can see functions having aysnc in front of them
 
 
 async def main():
