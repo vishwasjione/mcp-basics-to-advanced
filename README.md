@@ -1,6 +1,8 @@
 # mcp-basics-to-advanced   (**without any API cost**)
 This repo helps AI developers in learning about MCP and how to develop AI application using MCP, we will not use any API as such and entire execution will happen in local computer so developers won't have worry about API keys and cost of using an LLM.
 
+I will explain the code line by line with full details so that you can fully understand the process.
+
 Before we start using MCP, we will do same stuff without using MCP i.e. coding all kinds of tools in the same file or code base where LLM is also configured.
 This will explain why MCP is needed and then we will swtich to doing same thing using MCP.
 
@@ -147,7 +149,7 @@ The answer and solution of each of these question is following
 
 "Why don't I store these tools at centralized location along with validaton rules, security etc. and give access to agent programs "
 
-This question leads to MCP server.
+This is what MCP server is all about ..
 
 
 
