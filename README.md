@@ -1,10 +1,27 @@
-# mcp-basics-to-advanced   (**without any API cost**)
+
+## 📌 Index
+- [Overview](#mcp-basics-to-advanced--without-any-api-cost)
+- [Local Setup](#setup)
+- [Tool Calling Without MCP](#step-by-step-calling-tool-without-mcp)
+- [Why MCP Is Needed](#reasons-why-not-using-mcp-is-a-bad-idea--reasons-of-using-mcp)
+- [Tool Calling With MCP](#step-by-step-calling-tool-with-mcp)
+
+
+
+
+
+## mcp-basics-to-advanced   (**without any API cost**)
 This repo helps AI developers in learning about MCP and how to develop AI application using MCP, we will not use any API as such and entire execution will happen in local computer so developers won't have worry about API keys and cost of using an LLM.
 
-I will explain the code line by line with full details so that you can fully understand the process.
+I will explain the code line by line with full details so that you can fully understand the process. You can find detail coments in the python code files.
 
 Before we start using MCP, we will do same stuff without using MCP i.e. coding all kinds of tools in the same file or code base where LLM is also configured.
 This will explain why MCP is needed and then we will swtich to doing same thing using MCP.
+
+
+
+
+## setup 
 
 but before we do that we will have to setup the local envrionment, please follow following steps to set it up
 
@@ -96,7 +113,7 @@ Note :- In case of any setup error you can always take help of google/llms to fi
 Configure IDE so that it uses the venv you just created
 
 
-# Step by step calling tool (without MCP)
+## Step by step calling tool (without-MCP)
 
 Each following python file includes detailed comments, so if you start with 1-model-selects-tool.py, comments will help you understand each and every part 
 of the code, and same code is copied over to next set of files with new changes so that we can understand stuff in proper manner and not look at all the complex code in one go.
@@ -134,7 +151,7 @@ Together, these files exemplify how to build, debug, and integrate LLM-controlle
   The script exposes a single `run(user_msg)` function for end-to-end processing of any user question, handling all the orchestration internally. Example usage (when run as `python tool-agent.py`) shows how it answers user questions, delegates to tools, and combines the results using the model. This file is intended as the recommended interface for tool-using LLMs, where the earlier example files are primarily didactic and incremental in nature.
 
 
-# Reasons why not using MCP is a bad idea / reasons of using MCP
+## Reasons why not using MCP is a bad idea / reasons of using MCP
 
 I will explain in very simple english, let us look back our code in ```tool-agent.py```.
 When you look at the code you will ask following questions ..
@@ -154,7 +171,7 @@ This is what MCP server is all about ..
 ![MCP Overview](./images/MCP.png)
 
 
-# Step by step calling tool (with MCP)
+## Step by step calling tool (with MCP)
 
 
 install the mcp server
