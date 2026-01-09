@@ -23,6 +23,8 @@
 ![Ollama](https://img.shields.io/badge/Ollama-Local--LLM-black)
 ![MCP Server](https://img.shields.io/badge/MCP-Server-informational)
 
+> **A hands-on, zero-API-cost guide to building LLM agents with and without MCP — fully local, fully explained.**
+
 
 This repo helps AI developers in learning about MCP and how to develop AI application using MCP, we will not use any API as such and entire execution will happen in local computer so developers won't have worry about API keys and cost of using an LLM.
 
