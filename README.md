@@ -10,20 +10,21 @@
 
 
 
-## mcp-basics-to-advanced   (**without any API cost**)
+## mcp-basics-to-advanced   (**without any API cost**) 🚀
 
-![MCP](https://img.shields.io/badge/MCP-Protocol-blueviolet)
-![LLM](https://img.shields.io/badge/LLM-Local--Models-purple)
-![Agentic AI](https://img.shields.io/badge/Agentic-AI-orange)
-![Tooling](https://img.shields.io/badge/Tooling-Python-green)
-![No API Cost](https://img.shields.io/badge/API-Cost--Free-success)
 
-![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue)
-![License](https://img.shields.io/badge/license-MIT-brightgreen)
-![Ollama](https://img.shields.io/badge/Ollama-Local--LLM-black)
-![MCP Server](https://img.shields.io/badge/MCP-Server-informational)
+![MCP](https://img.shields.io/badge/MCP-Protocol-7C3AED)
+![Agentic AI](https://img.shields.io/badge/Agentic-AI-F97316)
+![Local LLM](https://img.shields.io/badge/LLM-Local-6D28D9)
+![Tooling](https://img.shields.io/badge/Tooling-Python-10B981)
+![No API Cost](https://img.shields.io/badge/API-Cost--Free-22C55E)
+![Subprocess](https://img.shields.io/badge/MCP-Subprocess-64748B)
+![HTTP](https://img.shields.io/badge/Transport-HTTP%20%2F%20SSE-0EA5E9)
+![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-3776AB)
+![License](https://img.shields.io/badge/license-MIT-84CC16)
 
-> **A hands-on, zero-API-cost guide to building LLM agents with and without MCP — fully local, fully explained.**
+> **A zero-API-cost, local-first guide to building agentic AI systems using MCP — with and without centralized tool servers.**
+
 
 
 This repo helps AI developers in learning about MCP and how to develop AI application using MCP, we will not use any API as such and entire execution will happen in local computer so developers won't have worry about API keys and cost of using an LLM.
