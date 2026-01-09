@@ -170,8 +170,8 @@ Together, these files exemplify how to build, debug, and integrate LLM-controlle
 
   The script exposes a single `run(user_msg)` function for end-to-end processing of any user question, handling all the orchestration internally. Example usage (when run as `python tool-agent.py`) shows how it answers user questions, delegates to tools, and combines the results using the model. This file is intended as the recommended interface for tool-using LLMs, where the earlier example files are primarily didactic and incremental in nature.
 
-
-## Reasons why not using MCP is a bad idea / reasons of using MCP
+🧠
+## Reasons why not using MCP is a bad idea / reasons of using MCP 
 
 I will explain in very simple english, let us look back our code in ```tool-agent.py```.
 When you look at the code you will ask following questions ..
@@ -190,8 +190,8 @@ This is what MCP server is all about ..
 
 ![MCP Overview](./images/MCP.png)
 
-
-## Step by step calling tool (with MCP)
+⚙️
+## Step by step calling tool (with MCP) 
 
 
 install the mcp server
