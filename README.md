@@ -11,6 +11,7 @@
 
 
 ## mcp-basics-to-advanced   (**without any API cost**) 🚀
+![Level](https://img.shields.io/badge/Level-Beginner-14B8A6)
 
 
 ![MCP](https://img.shields.io/badge/MCP-Protocol-7C3AED)
