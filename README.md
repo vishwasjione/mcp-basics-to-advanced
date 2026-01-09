@@ -11,6 +11,19 @@
 
 
 ## mcp-basics-to-advanced   (**without any API cost**)
+
+![MCP](https://img.shields.io/badge/MCP-Protocol-blueviolet)
+![LLM](https://img.shields.io/badge/LLM-Local--Models-purple)
+![Agentic AI](https://img.shields.io/badge/Agentic-AI-orange)
+![Tooling](https://img.shields.io/badge/Tooling-Python-green)
+![No API Cost](https://img.shields.io/badge/API-Cost--Free-success)
+
+![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue)
+![License](https://img.shields.io/badge/license-MIT-brightgreen)
+![Ollama](https://img.shields.io/badge/Ollama-Local--LLM-black)
+![MCP Server](https://img.shields.io/badge/MCP-Server-informational)
+
+
 This repo helps AI developers in learning about MCP and how to develop AI application using MCP, we will not use any API as such and entire execution will happen in local computer so developers won't have worry about API keys and cost of using an LLM.
 
 I will explain the code line by line with full details so that you can fully understand the process. You can find detail coments in the python code files.
