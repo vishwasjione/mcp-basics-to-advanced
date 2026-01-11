@@ -80,7 +80,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ```bash
 uv venv .venv
 ```
-activate it 
+activate it -
 
 ```bash
 source .venv/bin/activate
