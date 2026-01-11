@@ -84,7 +84,7 @@ call_json = call.model_dump_json()
 
 # TOOLS is a dict and it will give literal value as per the key passsed
 # and as model output is validated it must be having values like "count_o", "add", "none"
-fn = TOOLS[call.tool]
+fn = TOOLS[call.tool] # count_o
 
 # call the selected tool and pass the arguments
 result = fn(**call.args)

@@ -31,9 +31,9 @@
 
 
 
-This repo helps AI developers in learning about MCP and how to develop AI application using MCP, we will not use any API as such and entire execution will happen in local computer so developers won't have worry about API keys and cost of using an LLM.
+This repo helps AI developers in learning about MCP and how to develop AI application using MCP, we will not use any API (requiring some payment) as such and entire execution will happen in local computer so developers won't have to worry about API keys and cost of using an LLM.
 
-I will explain the code line by line with full details so that you can fully understand the process. You can find detail coments in the python code files.
+I will explain the code line by line with full details so that you can fully understand the process. You can find detail comments in the python code files.
 
 Before we start using MCP, we will do same stuff without using MCP i.e. coding all kinds of tools in the same file or code base where LLM is also configured.
 This will explain why MCP is needed and then we will swtich to doing same thing using MCP.
